@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div ng-app="apka" ng-controller="InvoiceController as invoice">
+    <b>Invoice:</b>
+    <div>
+      Quantity: <input type="number" min="0" ng-model="invoice.qty" required>
+    </div>
+    <div>
+      Costs: <input type="number" min="0" ng-model="invoice.cost" required>
+      <select ng-model="invoice.inCurr">
+       <option ng-repeat="c in invoice.currencies">{{c}}</option>
+      </select>
+    </div>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <b>Total:</b>
+      <ul>
+        <li ng-repeat="c in invoice.currencies">
+          {{invoice.total(c) | currency:(c)}}
+        </li>
+      </ul>
+
+        <p></p>
+        adad
+        asd
+        adads
+      <button class="btn" ng-click="invoice.pay()">Pay</button>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+  <script src="finance2.js"></script>
+  <script src="invoice2.js"></script>
+</body>
+
+</html>
